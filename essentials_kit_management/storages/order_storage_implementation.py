@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from typing import Dict
 
 from essentials_kit_management.interactors.storages.order_storage_interface \
@@ -13,7 +14,7 @@ class OrderStorageImplementation(OrderStorageInterface):
                           user_id: int,
                           new_order_list: Dict):
 
-        Order.objects.bulk_create(
+        orders = Order.objects.bulk_create(
             [
                 Order(user_id=user_id,
                       form_id=order.form_id,
@@ -27,20 +28,37 @@ class OrderStorageImplementation(OrderStorageInterface):
             ]
         )
 
-
     def update_orders(self, update_order_list):
-        #TODO: need bulk_update for optimization
-        for order in update_order_list:
-            Order.objects.filter(id=order.order_id).update(
-                brand_id=order.brand_id,
-                count=order.ordered_count,
-                out_of_stock=order.out_of_stock)
 
+        order_ids = [order.order_id for order in update_order_list]
+        orders_dict = self._convert_update_orders_dtos_to_dict(
+            update_order_list=update_order_list)
+
+        orders = Order.objects.filter(id__in=order_ids)
+
+        for order in orders:
+            update_order = orders_dict[order.id]
+
+            order.brand_id = update_order.brand_id
+            order.count = update_order.ordered_count
+            order.out_of_stock = update_order.out_of_stock
+
+        Order.objects.bulk_update(orders,
+                                  ["brand_id", "count", "out_of_stock"])
+
+    def _convert_update_orders_dtos_to_dict(self, update_order_list):
+        dtos_dict = {}
+
+        for order_dto in update_order_list:
+            single_dict = {
+                order_dto.order_id: order_dto
+            }
+            dtos_dict.update(single_dict)
+        return dtos_dict
 
     def remove_orders(self, remove_order_list):
         order_ids = remove_order_list
         Order.objects.filter(id__in=order_ids).delete()
-
 
     def are_they_valid_order_ids(self, order_ids):
         order_ids = list(set(order_ids))

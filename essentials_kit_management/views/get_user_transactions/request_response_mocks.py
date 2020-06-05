@@ -10,6 +10,7 @@ RESPONSE_200_JSON = """
             "date": "string",
             "amount": 1,
             "status": "APPROVED",
+            "type": "CREDITED",
             "remark": "string"
         }
     ]

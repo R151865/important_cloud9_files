@@ -26,7 +26,12 @@ class TransactionStatusEnum(enum.Enum):
     REJECTED = "REJECTED"
 
 
-class TransactionTypeEnum(enum.Enum):
+class PaymentTypeEnum(enum.Enum):
     PHONE_PAY = "PHONE_PAY"
     GOOGLE_PAY = "GOOGLE_PAY"
     PAYTM = "PAYTM"
+
+
+class TransactionTypeEnum(enum.Enum):
+    CREDITED = "CREDITED"
+    DEBITED = "DEBITED"

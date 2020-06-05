@@ -3,6 +3,7 @@ from essentials_kit_management.interactors.storages.section_storage_interface \
 
 from essentials_kit_management.models import Section
 
+
 class SectionStorageImplementation(SectionStorageInterface):
 
     def are_they_valid_section_ids(self, section_ids):

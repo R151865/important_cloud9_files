@@ -12,7 +12,7 @@ from essentials_kit_management.interactors.storages.dtos import (
 from essentials_kit_management.models import Transaction
 
 from essentials_kit_management.constants.enums import (
-    TransactionTypeEnum, TransactionStatusEnum
+    PaymentTypeEnum, TransactionStatusEnum
     )
 
 
@@ -25,14 +25,14 @@ def test_create_transaction_request_db_with_valid_details_create_request(
     user_id = 1
     transaction_id = 333333
     amount_paid = 100
-    transaction_type = TransactionTypeEnum.PAYTM.value
+    payment_type = PaymentTypeEnum.PAYTM.value
     transaction_screenshot = "urls/photo.png"
     status = TransactionStatusEnum.PENDING.value
     
     transaction_request_dto = TransactionRequestDto(
                     amount_paid=amount_paid,
                     transaction_id=transaction_id,
-                    transaction_type=transaction_type,
+                    payment_type=payment_type,
                     transaction_screenshot=transaction_screenshot)
     storage = UserStorageImplementation()
 
@@ -47,6 +47,6 @@ def test_create_transaction_request_db_with_valid_details_create_request(
     assert transaction_obj.transaction_id == transaction_id
     assert transaction_obj.user_id == user_id
     assert transaction_obj.amount == amount_paid
-    assert transaction_obj.transaction_type == transaction_type
+    assert transaction_obj.payment_type == payment_type
     assert transaction_obj.status == status
     assert transaction_obj.screen_shot == transaction_screenshot 

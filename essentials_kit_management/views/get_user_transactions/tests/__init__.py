@@ -3,7 +3,7 @@
 APP_NAME = "essentials_kit_management"
 OPERATION_NAME = "get_user_transactions"
 REQUEST_METHOD = "get"
-URL_SUFFIX = "users/transactions/"
+URL_SUFFIX = "users/transcactions/"
 
 from .test_case_01 import TestCase01GetUserTransactionsAPITestCase
 

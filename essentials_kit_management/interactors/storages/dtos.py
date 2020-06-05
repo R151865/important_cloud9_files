@@ -5,7 +5,8 @@ from dataclasses import dataclass
 from typing import Optional, List
 
 from essentials_kit_management.constants.enums import (
-    FormStatusEnum, TransactionStatusEnum, TransactionTypeEnum
+    FormStatusEnum, TransactionStatusEnum, TransactionTypeEnum,
+    PaymentTypeEnum
     )
 
 
@@ -191,8 +192,9 @@ class TransactionDto:
     date: datetime
     amount: int
     status: TransactionStatusEnum
-    transaction_type: TransactionTypeEnum
+    payment_type: PaymentTypeEnum
     screen_shot: str
+    transaction_type: TransactionTypeEnum
     remark: str
 
 @dataclass
@@ -200,6 +202,7 @@ class GetUserTransactionDto:
     transaction_id: int
     date: datetime
     amount: int
+    transaction_type: TransactionTypeEnum
     status: TransactionStatusEnum
     remark: str
 
@@ -210,11 +213,10 @@ class GetMyWalletDto:
 
 
 @dataclass
-
 class TransactionRequestDto:
     amount_paid: int
     transaction_id: int
-    transaction_type: TransactionTypeEnum
+    payment_type: PaymentTypeEnum
     transaction_screenshot: str
 
 

@@ -24,13 +24,13 @@ def test_create_transaction_request_interactor():
     transaction_id = 1234567890
     transaction_dict = {
         "amount_paid": amount_paid,
-        "transaction_type": "PAYTM",
+        "payment_type": "PAYTM",
         "transaction_id": transaction_id,
         "transaction_screenshot": "screenshot/photo.png"
     }
     expected_transaction_request_dto = TransactionRequestDto(
         amount_paid=10001,
-        transaction_type="PAYTM",
+        payment_type="PAYTM",
         transaction_id=transaction_id,
         transaction_screenshot="screenshot/photo.png"
     )
@@ -62,7 +62,7 @@ def test_create_transaction_request_interactor_with_invalid_payment_raise_except
     invalid_payment = -10
     transaction_dict = {
         "amount_paid": invalid_payment,
-        "transaction_type": "PAYTM",
+        "payment_type": "PAYTM",
         "transaction_id": 1234567890,
         "transaction_screenshot": "screenshot/photo.png"
     }
@@ -90,7 +90,7 @@ def test_create_transaction_request_interactor_with_existed_transaction_id_raise
     invalid_payment = 10
     transaction_dict = {
         "amount_paid": invalid_payment,
-        "transaction_type": "PAYTM",
+        "payment_type": "PAYTM",
         "transaction_id": 1234567890,
         "transaction_screenshot": "screenshot/photo.png"
     }

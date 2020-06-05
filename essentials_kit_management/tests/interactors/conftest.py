@@ -3,7 +3,7 @@ import datetime
 import pytest
 
 from essentials_kit_management.constants.enums import (
-    TransactionStatusEnum, TransactionTypeEnum
+    TransactionStatusEnum, TransactionTypeEnum, PaymentTypeEnum
     
     )
 
@@ -522,8 +522,9 @@ def get_user_transaction_dtos_and_my_wallet_dto():
         user_id=1,
         amount=1000,
         screen_shot="",
-        transaction_type=TransactionTypeEnum.PAYTM.value,
+        payment_type= PaymentTypeEnum.PAYTM.value,
         date=datetime.datetime(2020, 10, 10, 0, 0, 0),
+        transaction_type=TransactionTypeEnum.CREDITED.value,
         status=TransactionStatusEnum.APPROVED.value,
         remark="wallet")
     transaction_dto2 = TransactionDto(
@@ -531,8 +532,9 @@ def get_user_transaction_dtos_and_my_wallet_dto():
         user_id=1,
         amount=500,
         screen_shot="",
-        transaction_type=TransactionTypeEnum.PAYTM.value,
+        payment_type= PaymentTypeEnum.PAYTM.value,
         date=datetime.datetime(2020, 10, 10, 0, 0, 0),
+        transaction_type=TransactionTypeEnum.CREDITED.value,
         status=TransactionStatusEnum.PENDING.value,
         remark="wallet")
     transaction_dto3 = TransactionDto(
@@ -540,8 +542,9 @@ def get_user_transaction_dtos_and_my_wallet_dto():
         user_id=1,
         amount=-500,
         screen_shot="",
-        transaction_type=TransactionTypeEnum.PAYTM.value,
+        payment_type=PaymentTypeEnum.PAYTM.value,
         date=datetime.datetime(2020, 10, 10, 0, 0, 0),
+        transaction_type=TransactionTypeEnum.DEBITED.value,
         status=TransactionStatusEnum.APPROVED.value,
         remark="snackform")
 
@@ -557,17 +560,20 @@ def get_user_transaction_dtos_and_my_wallet_dto():
                 amount=1000,
                 date=datetime.datetime(2020, 10, 10, 0, 0, 0),
                 status=TransactionStatusEnum.APPROVED.value,
+                transaction_type=TransactionTypeEnum.CREDITED.value,
                 remark="wallet"),
             GetUserTransactionDto(
                 transaction_id=2,
                 amount=500,
                 date=datetime.datetime(2020, 10, 10, 0, 0, 0),
                 status=TransactionStatusEnum.PENDING.value,
+                transaction_type=TransactionTypeEnum.CREDITED.value,
                 remark="wallet"),
             GetUserTransactionDto(
                 transaction_id=3,
                 amount=-500,
                 date=datetime.datetime(2020, 10, 10, 0, 0, 0),
+                transaction_type=TransactionTypeEnum.DEBITED.value,
                 status=TransactionStatusEnum.APPROVED.value,
                 remark="snackform")
             ]

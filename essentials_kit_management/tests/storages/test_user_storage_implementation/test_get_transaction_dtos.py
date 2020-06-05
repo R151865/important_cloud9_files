@@ -22,7 +22,8 @@ def test_get_transaction_dtos_with_valid_details_return_dtos(
             date=datetime.datetime(2020, 10, 10, 0, 0, 0),
             amount=100,
             status="APPROVED",
-            transaction_type="PHONE_PAY",
+            payment_type="PHONE_PAY",
+            transaction_type="CREDITED",
             screen_shot="12/12",
             remark="wallet")
 
@@ -32,7 +33,8 @@ def test_get_transaction_dtos_with_valid_details_return_dtos(
             date=datetime.datetime(2020, 10, 10, 0, 0, 0),
             amount=200,
             status="PENDING",
-            transaction_type="GOOGLE_PAY",
+            payment_type="GOOGLE_PAY",
+            transaction_type="CREDITED",
             screen_shot="12/12",
             remark="snacks")
     expected_transaction_dtos = [transaction1, transaction2]

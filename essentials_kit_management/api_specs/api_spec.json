@@ -106,6 +106,13 @@
                     ]
 
                 },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "CREDITED",
+                        "DEBITED"
+                    ]
+                },
                 "remark": {
                     "type": "string"
                 }
@@ -115,6 +122,7 @@
                 "date",
                 "amount",
                 "status",
+                "type",
                 "remark"
             ]
         },
@@ -124,7 +132,7 @@
                 "amount_paid": {
                     "type": "integer"
                 },
-                "transaction_type": {
+                "payment_type": {
                     "type": "string",
                     "enum": [
                         "PHONE_PAY",
@@ -142,7 +150,7 @@
             },
             "required": [
                 "amount_paid",
-                "transaction_type",
+                "payment_type",
                 "transaction_id",
                 "transaction_screenshot"
             ]
@@ -728,7 +736,7 @@
             }
 
         },
-        "/users/transactions/": {
+        "/users/transcactions/": {
             "get": {
                 "operationId": "get_user_transactions",
                 "summary": "Get User Transactions",
@@ -748,7 +756,7 @@
 
             }
         },
-        "/users/transactions/request/": {
+        "/users/transcactions/request/": {
             "post": {
                 "operationId": "create_transaction_request",
                 "summary": "Create Transaction Request",

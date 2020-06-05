@@ -6,7 +6,7 @@ from essentials_kit_management.models import (
 )
 
 from essentials_kit_management.constants.enums import (
-    TransactionStatusEnum, TransactionTypeEnum
+    TransactionStatusEnum, TransactionTypeEnum, PaymentTypeEnum
     )
 
 
@@ -31,7 +31,8 @@ transaction_list = [
         "user_id": 1,
         "amount": 100,
         "status": TransactionStatusEnum.APPROVED.value,
-        "transaction_type": TransactionTypeEnum.PHONE_PAY.value,
+        "payment_type": PaymentTypeEnum.PHONE_PAY.value,
+        "transaction_type": TransactionTypeEnum.CREDITED.value,
         "screen_shot": "12/12",
         "remark": "wallet"
     },
@@ -40,7 +41,8 @@ transaction_list = [
         "user_id": 1,
         "amount": 200,
         "status": TransactionStatusEnum.PENDING.value,
-        "transaction_type": TransactionTypeEnum.GOOGLE_PAY.value,
+        "payment_type": PaymentTypeEnum.GOOGLE_PAY.value,
+        "transaction_type": TransactionTypeEnum.CREDITED.value,
         "screen_shot": "12/12",
         "remark": "snacks"
     }
@@ -63,6 +65,7 @@ def create_transactions():
             user_id=transaction['user_id'],
             amount=transaction['amount'],
             status=transaction['status'],
+            payment_type=transaction["payment_type"],
             transaction_type=transaction["transaction_type"],
             screen_shot=transaction["screen_shot"],
             remark=transaction["remark"])

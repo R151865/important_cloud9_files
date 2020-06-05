@@ -18,30 +18,31 @@ INVALID_PASSWORD = (
 
 
 INVALID_ITEM_ID = (
-    "Please provide valid item id", "INVALID_ITEM_ID"
+    "Invalid item id", "INVALID_ITEM_ID"
 )
 
 INVALID_SECTION_ID = (
-    "Please provide valid section id", "INVALID_SECTION_ID"
+    "Invalid section id", "INVALID_SECTION_ID"
 )
 
 INVALID_ORDER_ID = (
-    "Please provide valid order id", "INVALID_ORDER_ID"
+    "Invalid order id", "INVALID_ORDER_ID"
 )
 
 INVALID_BRAND_ID = (
-    "Please provide valid brand id", "INVALID_BRAND_ID"
+    "Invalid brand id", "INVALID_BRAND_ID"
 )
 
 USERNAME_ARLEADY_EXISTS = (
-    "Username already exists try with another username", "USERNAME_ARLEADY_EXISTS"
+    "Username name already exists",
+    "USERNAME_ARLEADY_EXISTS"
     )
 
 INVALID_PAYMENT = (
-    "Please provide valid payment amount", "INVALID_PAYMENT"
+    "Inalid payment amount", "INVALID_PAYMENT"
 )
 
 TRANSACTION_ID_ALREADY_EXISTS = (
-    "Provided transaction id already exists, please another transaction id ",
+    "Transaction id already exists",
     "TRANSACTION_ID_ALREADY_EXISTS"
 )

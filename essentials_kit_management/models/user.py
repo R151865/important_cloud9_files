@@ -3,7 +3,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 from essentials_kit_management.constants.enums import (
-    FormStatusEnum, TransactionTypeEnum, TransactionStatusEnum
+    FormStatusEnum, TransactionTypeEnum, TransactionStatusEnum, 
+    PaymentTypeEnum
 )
 
 
@@ -71,9 +72,16 @@ class Transaction(models.Model):
             (transaction_type.name, transaction_type.value)
                 for transaction_type in TransactionTypeEnum
             ],
-            max_length=50
+            max_length=50, default=TransactionTypeEnum.CREDITED.value
         )
     screen_shot = models.TextField()
+    payment_type = models.CharField(
+        choices = [
+            (payment.name, payment.value)
+            for payment in PaymentTypeEnum
+            ],
+            max_length=10
+        )
     remark = models.CharField(max_length=100)
 
 

@@ -1,7 +1,7 @@
 from essentials_kit_management.interactors.storages.user_storage_interface \
     import UserStorageInterface
-from essentials_kit_management.interactors.presenters.user_presenter_interface \
-    import UserPresenterInterface
+from essentials_kit_management.interactors. \
+    presenters.user_presenter_interface import UserPresenterInterface
 
 
 class GetAdminAccountDetailsInteractor:

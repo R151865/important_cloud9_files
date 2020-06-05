@@ -67,6 +67,7 @@ class UserPresenterImplementation(UserPresenterInterface):
                 "date": self.get_date_time_format(transaction.date),
                 "amount": transaction.amount,
                 "status": transaction.status,
+                "type": transaction.transaction_type,
                 "remark": transaction.remark
             }
             transaction_dict_list.append(single_dict)

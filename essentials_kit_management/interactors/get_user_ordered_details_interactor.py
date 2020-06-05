@@ -19,7 +19,7 @@ class GetUserOrderedDetailsInteractor:
         self.form_storage = form_storage
         self.form_presenter = form_presenter
 
-    def get_user_ordered_details(self, user_id:int, form_id: int):
+    def get_user_ordered_details(self, user_id: int, form_id: int):
 
         is_valid_form_id = self.form_storage.is_valid_form_id(form_id=form_id)
         invalid_form_id_given = not is_valid_form_id
@@ -29,8 +29,10 @@ class GetUserOrderedDetailsInteractor:
             return
 
         user_order_dtos = self.form_storage.get_order_dtos(user_id=user_id,
-                                                      form_id=form_id)
-        user_brand_dtos = self.form_storage.get_user_brand_dtos(user_order_dtos)
+                                                           form_id=form_id)
+        user_brand_dtos = self.form_storage.get_user_brand_dtos(
+            user_order_dtos
+        )
         user_item_dtos = self.form_storage.get_user_item_dtos(user_order_dtos)
 
         brand_dicts = self._convert_brand_to_dicts(brand_dtos=user_brand_dtos)
@@ -45,8 +47,6 @@ class GetUserOrderedDetailsInteractor:
             order_detail_dtos)
 
         return response
-
-
 
     def _convert_brand_to_dicts(self, brand_dtos):
         dicts = {}
@@ -68,7 +68,6 @@ class GetUserOrderedDetailsInteractor:
             dicts.update(single_dict)
         return dicts
 
-
     def _get_user_order_detail_dtos(self, orders, brand_dicts, item_dicts):
         order_dtos_list = []
 
@@ -87,15 +86,12 @@ class GetUserOrderedDetailsInteractor:
             order_dtos_list.append(dto)
         return order_dtos_list
 
-
-
     def _get_incurred_cost_and_recieved_count(self,
                                               order,
                                               brand_dicts):
         price_per_item = brand_dicts[order.brand_id].price_per_item
         recieved_count = order.count - order.pending_count
-        cost_incurred = recieved_count * price_per_item # i have doubt here 
+        cost_incurred = recieved_count * price_per_item  # have dout
         # i have to start from here
 
         return cost_incurred, recieved_count
-                                                  

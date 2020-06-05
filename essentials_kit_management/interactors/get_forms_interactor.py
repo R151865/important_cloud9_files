@@ -22,8 +22,8 @@ class GetFormsInteractor:
     def get_forms(self, user_id: int, offset=0, limit=30):
 
         are_they_valid_offset_and_limit = \
-            self.form_storage.are_they_valid_offset_and_limit(offset=offset,
-                                                               limit=limit)
+            self.form_storage.are_they_valid_offset_and_limit(
+                offset=offset, limit=limit)
         invalid_offset_and_limit_given = not are_they_valid_offset_and_limit
 
         if invalid_offset_and_limit_given:
@@ -35,7 +35,9 @@ class GetFormsInteractor:
 
         user_order_dtos = self.form_storage.get_user_order_dtos(user_id)
 
-        user_brand_dtos = self.form_storage.get_user_brand_dtos(user_order_dtos)
+        user_brand_dtos = self.form_storage.get_user_brand_dtos(
+            user_order_dtos
+        )
         user_item_dtos = self.form_storage.get_user_item_dtos(user_order_dtos)
 
         form_complete_details_dtos = \
@@ -53,20 +55,19 @@ class GetFormsInteractor:
 
         return response
 
-
     def arrange_details_and_return_form_complete_details_dtos(
-            self,forms, orders, brands, items):
+            self, forms, orders, brands, items):
 
         form_complete_details_dtos = []
 
         for form in forms:
             form_id = form.form_id,
-            order_dtos=self._get_form_orders(form_id=form.form_id,
-                                             orders=orders)
-            brand_dtos=self._get_order_brands(orders=order_dtos,
-                                              brands=brands)
+            order_dtos = self._get_form_orders(form_id=form.form_id,
+                                               orders=orders)
+            brand_dtos = self._get_order_brands(orders=order_dtos,
+                                                brands=brands)
 
-            item_dtos=self._get_order_items(orders=order_dtos, items=items)
+            item_dtos = self._get_order_items(orders=order_dtos, items=items)
 
             dto = FormCompleteDetailsDto(form_dto=form,
                                          brand_dtos=brand_dtos,
@@ -75,7 +76,6 @@ class GetFormsInteractor:
             form_complete_details_dtos.append(dto)
 
         return form_complete_details_dtos
-
 
     def _get_form_orders(self, form_id, orders):
         form_orders_list = []
@@ -124,16 +124,16 @@ class GetFormsInteractor:
         brand_dicts = self._get_brands_dicts(brands)
 
         total_items_count = self._get_total_ordered_items_count(orders=orders)
-        estimated_cost =  self._get_estimated_cost(orders=orders,
-                                                   brand_dicts=brand_dicts)
+        estimated_cost = self._get_estimated_cost(orders=orders,
+                                                  brand_dicts=brand_dicts)
 
         pending_items_count = self._get_pending_items(orders)
         incurred_cost = self._get_incurred_cost(orders=orders,
                                                 brand_dicts=brand_dicts)
 
-        form_status = self.is_form_is_closed_with_no_pending_item_update_form_status(
-            form.status,
-            pending_items_count)
+        form_status = \
+            self.is_form_is_closed_with_no_pending_item_update_form_status(
+                form.status, pending_items_count)
 
         home_page_form_dto = HomePageFormDto(
              form_id=form.form_id,
@@ -160,7 +160,6 @@ class GetFormsInteractor:
 
         return form_status
 
-
     def _get_total_ordered_items_count(self, orders):
         count = 0
 
@@ -185,7 +184,6 @@ class GetFormsInteractor:
             price_per_item = brand_dicts[order.brand_id].price_per_item
             cost = cost + (order.count-order.pending_count)*price_per_item
         return cost
-
 
     def _get_pending_items(self, orders):
         count = 0

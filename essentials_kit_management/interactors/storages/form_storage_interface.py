@@ -17,9 +17,6 @@ class FormStorageInterface():
     def is_valid_form_id(self, form_id: int):
         pass
 
-    def get_form_to_fill_dto(self, form_id: int):
-        pass
-
     def get_user_order_dtos(self, user_id) ->List[OrderDto]:
         pass
 

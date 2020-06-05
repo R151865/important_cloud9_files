@@ -55,10 +55,9 @@ class UserStorageImplementation(UserStorageInterface):
         transaction_objs = Transaction.objects.filter(user_id=user_id)
         transaction_dtos = [
             self._convert_transaction_obj_to_dto(transaction)
-                for transaction in transaction_objs
+            for transaction in transaction_objs
             ]
         return transaction_dtos
-
 
     def _convert_transaction_obj_to_dto(self, transaction_obj):
         return TransactionDto(
@@ -68,9 +67,9 @@ class UserStorageImplementation(UserStorageInterface):
             amount=transaction_obj.amount,
             status=transaction_obj.status,
             transaction_type=transaction_obj.transaction_type,
+            payment_type=transaction_obj.payment_type,
             screen_shot=transaction_obj.screen_shot,
             remark=transaction_obj.remark)
-
 
     def create_transaction_request_db(
             self,
@@ -81,10 +80,9 @@ class UserStorageImplementation(UserStorageInterface):
             user_id=user_id,
             amount=transaction_request_dto.amount_paid,
             transaction_id=transaction_request_dto.transaction_id,
-            transaction_type=transaction_request_dto.transaction_type,
+            payment_type=transaction_request_dto.payment_type,
             screen_shot=transaction_request_dto.transaction_screenshot,
             remark="Wallet")
-
 
     def get_admin_account_dto(self):
         account_obj = Account.objects.filter().first()
@@ -93,9 +91,8 @@ class UserStorageImplementation(UserStorageInterface):
             account_holder=account_obj.account_holder)
         return account_dto
 
-
     def is_valid_payment(self, amount: int):
-        is_positive_payment = amount >0
+        is_positive_payment = amount > 0
         return is_positive_payment
 
     def is_transaction_id_exists(self, transaction_id: int):

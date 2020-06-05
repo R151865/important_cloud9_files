@@ -124,6 +124,7 @@ def create_orders():
         )
 
 
+
 transaction_list = [
     # user 1 transactions
     {
@@ -131,7 +132,7 @@ transaction_list = [
         "user_id": 1,
         "amount": 2500,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -140,7 +141,7 @@ transaction_list = [
         "user_id": 1,
         "amount": 1000,
         "status": "APPROVED",
-        "transaction_type": "GOOGLE_PAY",
+        "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -149,7 +150,7 @@ transaction_list = [
         "user_id": 1,
         "amount": -100,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "",
         "remark": "form1"
     },
@@ -158,7 +159,7 @@ transaction_list = [
         "user_id": 1,
         "amount": -600,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "form2"
     },
@@ -167,7 +168,7 @@ transaction_list = [
         "user_id": 1,
         "amount": 700,
         "status": "PENDING",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -176,7 +177,7 @@ transaction_list = [
         "user_id": 1,
         "amount": 500,
         "status": "PENDING",
-        "transaction_type": "GOOGLE_PAY",
+        "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -185,7 +186,7 @@ transaction_list = [
         "user_id": 1,
         "amount": 1000,
         "status": "REJECTED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -194,7 +195,7 @@ transaction_list = [
         "user_id": 1,
         "amount": 700,
         "status": "REJECTED",
-        "transaction_type": "PAYTM",
+        "payment_type": "PAYTM",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -204,7 +205,7 @@ transaction_list = [
         "user_id": 2,
         "amount": 2000,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -213,7 +214,7 @@ transaction_list = [
         "user_id": 2,
         "amount": 1000,
         "status": "APPROVED",
-        "transaction_type": "GOOGLE_PAY",
+        "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -222,7 +223,7 @@ transaction_list = [
         "user_id": 2,
         "amount": -400,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "",
         "remark": "form1"
     },
@@ -231,7 +232,7 @@ transaction_list = [
         "user_id": 2,
         "amount": -500,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "form2"
     },
@@ -240,7 +241,7 @@ transaction_list = [
         "user_id": 2,
         "amount": 700,
         "status": "PENDING",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -249,7 +250,7 @@ transaction_list = [
         "user_id": 2,
         "amount": 500,
         "status": "PENDING",
-        "transaction_type": "GOOGLE_PAY",
+        "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -258,7 +259,7 @@ transaction_list = [
         "user_id": 2,
         "amount": 900,
         "status": "REJECTED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -267,7 +268,7 @@ transaction_list = [
         "user_id": 2,
         "amount": 700,
         "status": "REJECTED",
-        "transaction_type": "PAYTM",
+        "payment_type": "PAYTM",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -278,7 +279,7 @@ transaction_list = [
         "user_id": 3,
         "amount": 2000,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -287,7 +288,7 @@ transaction_list = [
         "user_id": 3,
         "amount": 1000,
         "status": "APPROVED",
-        "transaction_type": "GOOGLE_PAY",
+        "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -296,7 +297,7 @@ transaction_list = [
         "user_id": 3,
         "amount": -500,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "",
         "remark": "form1"
     },
@@ -305,7 +306,7 @@ transaction_list = [
         "user_id": 3,
         "amount": -500,
         "status": "APPROVED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "form2"
     },
@@ -314,7 +315,7 @@ transaction_list = [
         "user_id": 3,
         "amount": 800,
         "status": "PENDING",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -323,7 +324,7 @@ transaction_list = [
         "user_id": 3,
         "amount": 500,
         "status": "PENDING",
-        "transaction_type": "GOOGLE_PAY",
+        "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -332,7 +333,7 @@ transaction_list = [
         "user_id": 3,
         "amount": 800,
         "status": "REJECTED",
-        "transaction_type": "PHONE_PAY",
+        "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     },
@@ -341,7 +342,7 @@ transaction_list = [
         "user_id": 3,
         "amount": 700,
         "status": "REJECTED",
-        "transaction_type": "PAYTM",
+        "payment_type": "PAYTM",
         "screen_shot": "screen_shot/payment.png",
         "remark": "wallet"
     }
@@ -349,6 +350,7 @@ transaction_list = [
 
 
 ]
+
 
 def create_transactions():
 
@@ -358,7 +360,7 @@ def create_transactions():
             user_id=transaction['user_id'],
             amount=transaction['amount'],
             status=transaction['status'],
-            transaction_type=transaction["transaction_type"],
+            payment_type=transaction["payment_type"],
             screen_shot=transaction["screen_shot"],
             remark=transaction["remark"])
 

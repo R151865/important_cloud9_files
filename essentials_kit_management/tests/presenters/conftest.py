@@ -172,12 +172,14 @@ def get_user_transaction_dto_and_expected_dict():
                     amount=1000,
                     date=datetime.datetime(2020, 10, 10, 0, 0, 0),
                     status=TransactionStatusEnum.APPROVED.value,
+                    transaction_type="CREDITED",
                     remark="wallet"),
                 GetUserTransactionDto(
                     transaction_id=2222,
                     amount=500,
                     date=datetime.datetime(2020, 10, 10, 0, 0, 0),
                     status=TransactionStatusEnum.PENDING.value,
+                    transaction_type="CREDITED",
                     remark="wallet")
                     ]
             )
@@ -191,6 +193,7 @@ def get_user_transaction_dto_and_expected_dict():
                         "date": "2020-10-10 00:00:00",
                         "amount": 1000,
                         "status": "APPROVED",
+                        "type": "CREDITED",
                         "remark": "wallet"
                     },
                     {
@@ -198,6 +201,7 @@ def get_user_transaction_dto_and_expected_dict():
                         "date": "2020-10-10 00:00:00",
                         "amount": 500,
                         "status": "PENDING",
+                        "type": "CREDITED",
                         "remark": "wallet"
                     }
         ]

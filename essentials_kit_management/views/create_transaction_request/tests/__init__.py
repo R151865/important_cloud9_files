@@ -3,7 +3,7 @@
 APP_NAME = "essentials_kit_management"
 OPERATION_NAME = "create_transaction_request"
 REQUEST_METHOD = "post"
-URL_SUFFIX = "users/transactions/request/"
+URL_SUFFIX = "users/transcactions/request/"
 
 from .test_case_01 import TestCase01CreateTransactionRequestAPITestCase
 

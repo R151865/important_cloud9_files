@@ -3,6 +3,7 @@ from essentials_kit_management.interactors.storages.item_storage_interface \
 
 from essentials_kit_management.models import Item
 
+
 class ItemStorageImplementation(ItemStorageInterface):
 
     def are_they_valid_item_ids(self, item_ids):

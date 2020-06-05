@@ -11,6 +11,7 @@ from essentials_kit_management.exceptions.exceptions import (
     InvalidPassword, InvalidUsername
 )
 
+
 class CreateUserSignUpInteractor:
 
     def __init__(self,
@@ -29,13 +30,15 @@ class CreateUserSignUpInteractor:
 
         if is_username_already_exists:
             self.user_presenter.raise_username_already_exists_exception()
-            return 
+            return
 
         user_id = self.user_storage.create_user(name=name,
                                                 username=username,
                                                 password=password)
 
-        service = OAuthUserAuthTokensService(oauth2_storage=self.oauth2_storage)
+        service = OAuthUserAuthTokensService(
+            oauth2_storage=self.oauth2_storage
+        )
         acces_token_dto = service.create_user_auth_tokens(user_id=user_id)
 
         response = self.user_presenter.get_access_token_response(

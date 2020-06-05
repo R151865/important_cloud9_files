@@ -3,6 +3,7 @@ from essentials_kit_management.interactors.storages.brand_storage_interface \
 
 from essentials_kit_management.models import Brand
 
+
 class BrandStorageImplementation(BrandStorageInterface):
 
     def are_they_valid_brand_ids(self, brand_ids):
