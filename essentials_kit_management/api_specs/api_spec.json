@@ -1,0 +1,916 @@
+{
+    "swagger": "2.0",
+    "host": "127.0.0.1:8000",
+    "basePath": "/api/essentials_kit_management/",
+    "info": {
+        "version": "1.0.0",
+        "title": "Essentials Kit Management",
+        "description": "Essentials Kit Management OpenAPI Specification"
+    },
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "oauth": {
+            "tokenUrl": "http://auth.ibtspl.com/oauth2/",
+            "flow": "password",
+            "scopes": {
+                "read": "read users",
+                "write": "create users",
+                "update": "update users",
+                "delete": "delete users",
+                "superuser": "super user permission"
+            },
+            "type": "oauth2"
+        }
+    },
+    "security": [],
+    "definitions": {
+
+        "CreateUserDetails": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "username",
+                "password"
+            ]
+
+        },
+        "UserLoginDetails": {
+            "type": "object",
+            "properties": {
+                "username": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "username",
+                "password"
+            ]
+        },
+        "UserTransactionsDetails": {
+            "type": "object",
+            "properties": {
+                "amount_deducted": {
+                    "type": "integer"
+                },
+                "delivery_date": {
+                    "type": "string",
+                    "format": "datetime"
+                }
+            },
+            "required": [
+                "amount_deducted",
+                "delivery_date"
+            ]
+        },
+        "UserTransactionTrackDetails": {
+            "type": "object",
+            "properties": {
+                "transaction_id": {
+                    "type": "integer"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "amount": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "APPROVED",
+                        "PENDING",
+                        "REJECTED"
+                    ]
+
+                },
+                "remark": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "transaction_id",
+                "date",
+                "amount",
+                "status",
+                "remark"
+            ]
+        },
+        "TransactionRequestDetails": {
+            "type": "object",
+            "properties": {
+                "amount_paid": {
+                    "type": "integer"
+                },
+                "transaction_type": {
+                    "type": "string",
+                    "enum": [
+                        "PHONE_PAY",
+                        "GOOGLE_PAY",
+                        "PAYTM"
+                    ]
+                },
+                "transaction_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "transaction_screenshot": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "amount_paid",
+                "transaction_type",
+                "transaction_id",
+                "transaction_screenshot"
+            ]
+        },
+        "AccountDetails": {
+            "type": "object",
+            "properties": {
+                "upi_id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "upi_id"
+            ]
+        },
+        "FormDetails": {
+            "type": "object",
+            "properties": {
+                "form_name": {
+                    "type": "string"
+                },
+                "form_status": {
+                    "type": "string",
+                    "enum": [
+                        "LIVE",
+                        "CLOSED",
+                        "DONE"
+                    ]
+                },
+                "close_date": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "expected_delivery_data": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "items_count": {
+                    "type": "integer"
+                },
+                "estimated_cost": {
+                    "type": "integer"
+                },
+                "cost_incurred": {
+                    "type": "integer"
+                },
+                "items_pending_count": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "form_name",
+                "form_status",
+                "close_date",
+                "expected_delivery_data",
+                "items_count",
+                "estimated_cost",
+                "cost_incurred",
+                "items_pending_count"
+            ]
+
+        },
+        "ItemOrderDetails": {
+            "type": "object",
+            "properties": {
+                "order_id": {
+                    "type": "integer"
+                },
+                "brand_id": {
+                    "type": "integer"
+                },
+                "ordered_count": {
+                    "type": "integer"
+                },
+                "out_of_stock": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "order_id",
+                "brand_id",
+                "ordered_count",
+                "out_of_stock"
+            ]
+        },
+        "BrandDetails": {
+            "type": "object",
+            "properties": {
+                "brand_id": {
+                    "type": "integer"
+                },
+                "brand_name": {
+                    "type": "string"
+                },
+                "min_quantity": {
+                    "type": "integer"
+                },
+                "max_quantity": {
+                    "type": "integer"
+                },
+                "price_per_item": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "brand_id",
+                "brand_name",
+                "min_quantity",
+                "max_quantity",
+                "price_per_item"
+            ]
+        },
+        "SectionDetails": {
+            "type": "object",
+            "properties": {
+                "section_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "items_details": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/QuestionDetails"
+                    }
+                }
+            },
+            "required": [
+                "section_id",
+                "name",
+                "description",
+                "items_details"
+            ]
+        },
+        "QuestionDetails": {
+            "type": "object",
+            "properties": {
+                "item_id": {
+                    "type": "integer"
+                },
+                "item_name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "brands": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BrandDetails"
+                    }
+                },
+                "order": {
+                    "$ref": "#/definitions/ItemOrderDetails"
+                }
+
+            },
+            "required": [
+                "item_id",
+                "item_name",
+                "description",
+                "brands",
+                "order"
+            ]
+
+        },
+        "ItemSectionDetails": {
+            "type": "object",
+            "properties": {
+                "form_name": {
+                    "type": "string"
+                },
+                "form_id": {
+                    "type": "integer"
+                },
+                "close_date": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "sections": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SectionDetails"
+                    }
+                }
+            },
+            "required": [
+                "form_name",
+                "form_id",
+                "close_date",
+                "sections"
+            ]
+        },
+        "UpdateFormSectionDetails": {
+            "type": "object",
+            "properties": {
+                "section_id": {
+                    "type": "integer"
+                },
+                "order_details": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "item_id": {
+                                "type": "integer"
+                            },
+                            "order_id": {
+                                "type": "integer"
+                            },
+                            "brand_id": {
+                                "type": "integer"
+                            },
+                            "ordered_count": {
+                                "type": "integer"
+                            },
+                            "out_of_stock": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "item_id",
+                            "order_id",
+                            "brand_id",
+                            "ordered_count",
+                            "out_of_stock"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "section_id",
+                "order_details"
+            ]
+        },
+        "UserOrderedDetails": {
+            "type": "object",
+            "properties": {
+                "item_id": {
+                    "type": "integer"
+                },
+                "item_name": {
+                    "type": "string"
+                },
+                "items_added": {
+                    "type": "integer"
+                },
+                "items_recived": {
+                    "type": "integer"
+                },
+                "cost_incurred": {
+                    "type": "integer"
+                },
+                "out_of_stock": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "item_id",
+                "item_name",
+                "items_added",
+                "items_recived",
+                "cost_incurred",
+                "out_of_stock"
+            ]
+        },
+        "CreateFormDetails": {
+            "type": "object",
+            "properties": {
+                "form_name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "form_name",
+                "description"
+            ]
+        },
+        "CreateSectionDeatails": {
+            "type": "object",
+            "properties": {
+                "section_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "section_id",
+                "name",
+                "description"
+            ]
+        }
+
+    },
+    "parameters": {
+
+        "CreateUserSignUpParameters": {
+            "name": "user",
+            "in": "body",
+            "description": "Create User SignUp Details",
+            "schema": {
+                "$ref": "#/definitions/CreateUserDetails"
+            }
+
+        },
+        "UserLoginParameters": {
+            "name": "user",
+            "in": "body",
+            "description": "User Login",
+            "schema": {
+                "$ref": "#/definitions/UserLoginDetails"
+            }
+        },
+        "CreateTransactionRequestParameters": {
+            "name": "user",
+            "in": "body",
+            "description": "Create User Transaction Request",
+            "schema": {
+                "$ref": "#/definitions/TransactionRequestDetails"
+            }
+        },
+        "FormPathParameter": {
+            "name": "form_id",
+            "in": "path",
+            "description": "Enter Form id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "OffsetDetailsParameters": {
+            "name": "offset",
+            "in": "query",
+            "description": "enter offset",
+            "required": true,
+            "type": "integer"
+        },
+        "LimitDetailsParameters": {
+            "name": "limit",
+            "in": "query",
+            "description": "enter limit",
+            "required": true,
+            "type": "integer"
+        },
+        "UpadteFormParameters": {
+            "name": "form",
+            "in": "body",
+            "description": "upadate form",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "form_id": {
+                        "type": "integer"
+                    },
+                    "sections": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/UpdateFormSectionDetails"
+                        }
+                    }
+                },
+                "required": [
+                    "form_id"
+                ]
+            }
+        },
+        "CreateFormParameters": {
+            "name": "form",
+            "in": "body",
+            "description": "details for creating form",
+            "schema": {
+                "$ref": "#/definitions/CreateFormDetails"
+            }
+        },
+        "CreateSectionsParameters": {
+            "name": "section",
+            "in": "body",
+            "description": "details for create sections",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "form_id": {
+                        "type": "integer"
+                    },
+                    "sections": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "section_id": {
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "section_id",
+                                "name",
+                                "description"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "form_id",
+                    "sections"
+                ]
+            }
+
+        }
+
+    },
+    "responses": {
+
+        "UserLoginResponse": {
+            "description": "Successfully Logged in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "integer"
+                    },
+                    "access_token": {
+                        "type": "string"
+                    },
+                    "refresh_token": {
+                        "type": "string"
+                    },
+                    "expires_in": {
+                        "type": "string",
+                        "format": "datetime"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "access_token",
+                    "refresh_token",
+                    "expires_in"
+                ]
+            }
+        },
+        "UserTransactionsDetailsResponse": {
+            "description": "Successfull Response",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "balance": {
+                        "type": "integer"
+                    },
+                    "transactions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/UserTransactionTrackDetails"
+                        }
+                    }
+                },
+                "required": [
+                    "balance",
+                    "transactions"
+                ]
+            }
+        },
+        "GetFormsResponse": {
+            "description": "Succesfull Response",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "forms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/FormDetails"
+                        }
+                    },
+                    "total_forms_count": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "forms",
+                    "total_forms_count"
+                ]
+            }
+        },
+        "GetFormResponse": {
+            "description": "Succesfull Response",
+            "schema": {
+                "$ref": "#/definitions/ItemSectionDetails"
+            }
+        },
+        "GetUserOrderedDetailsResponse": {
+            "description": "Succesfully user ordered details Recieved",
+            "schema": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/definitions/UserOrderedDetails"
+                }
+            }
+        },
+        "GetAdminAccountDetailsResponse": {
+            "description": "Succesfully got admin account details",
+            "schema": {
+                "$ref": "#/definitions/AccountDetails"
+            }
+        },
+        "CreateFormResponse": {
+            "description": "Succesfully form created",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "form_id": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "form_id"
+                ]
+            }
+        },
+        "CreateSectionResponse": {
+            "description": "Successfull Sections Created",
+            "schema": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/definitions/CreateSectionDeatails"
+                }
+            }
+        }
+    },
+
+    "paths": {
+
+        "/users/signup/": {
+            "post": {
+                "operationId": "create_user_signup",
+                "summary": "Create User Sign",
+                "description": "Create User SignUp",
+                "parameters": [{
+                    "$ref": "#/parameters/CreateUserSignUpParameters"
+                }],
+                "responses": {
+                    "201": {
+                        "$ref": "#/responses/UserLoginResponse"
+                    },
+                    "400": {
+                        "description": "User name already exists"
+                    }
+                }
+            }
+        },
+        "/users/login/": {
+            "post": {
+                "operationId": "user_login",
+                "summary": "User Login",
+                "description": "return user access token if user logged with valid details",
+                "parameters": [{
+                    "$ref": "#/parameters/UserLoginParameters"
+                }],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/UserLoginResponse"
+                    },
+                    "404": {
+                        "description": "Invalid Login details"
+                    }
+                }
+
+            }
+
+        },
+        "/users/transactions/": {
+            "get": {
+                "operationId": "get_user_transactions",
+                "summary": "Get User Transactions",
+                "description": "returns users transactions details",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/UserTransactionsDetailsResponse"
+                    },
+                    "401": {
+                        "description": "Unathourized user to get transactions"
+                    }
+                }
+
+            }
+        },
+        "/users/transactions/request/": {
+            "post": {
+                "operationId": "create_transaction_request",
+                "summary": "Create Transaction Request",
+                "description": "create transaction request with valid input data",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [{
+                    "$ref": "#/parameters/CreateTransactionRequestParameters"
+                }],
+                "responses": {
+                    "201": {
+                        "description": "Successfully transaction request created"
+                    },
+                    "400": {
+                        "description": "Invalid payment or transaction id provided"
+                    }
+                }
+
+            }
+        },
+        "/forms/": {
+            "get": {
+                "operationId": "get_forms",
+                "summary": "Get Forms",
+                "description": "returns list of forms with details",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [{
+                        "$ref": "#/parameters/OffsetDetailsParameters"
+                    },
+                    {
+                        "$ref": "#/parameters/LimitDetailsParameters"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/GetFormsResponse"
+                    }
+
+                }
+
+
+            }
+        },
+        "/forms/{form_id}/": {
+            "get": {
+                "operationId": "get_form",
+                "summary": "Get Form ",
+                "description": "returns form details",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [{
+                    "$ref": "#/parameters/FormPathParameter"
+                }],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/GetFormResponse"
+                    },
+                    "400": {
+                        "description": "Invalid form id given"
+                    }
+                }
+            }
+        },
+        "/forms/update/": {
+            "post": {
+                "operationId": "update_form",
+                "summary": "Update Form",
+                "description": "updates the form data",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [{
+                    "$ref": "#/parameters/UpadteFormParameters"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successfully Upadated"
+                    },
+                    "400": {
+                        "description": "Please provide valid details"
+                    }
+                }
+            }
+        },
+        "/forms/{form_id}/ordered/details/": {
+            "get": {
+                "operationId": "get_user_ordered_details",
+                "summary": "Get User Orded Details",
+                "description": "return list of ordered details of items per section",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [{
+                    "$ref": "#/parameters/FormPathParameter"
+                }],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/GetUserOrderedDetailsResponse"
+                    },
+                    "400": {
+                        "description": "Please provide valid form id"
+                    }
+                }
+            }
+        },
+        "/admin/account/details/": {
+            "get": {
+                "operationId": "get_admin_account_details",
+                "summary": "Get Admin Account Details",
+                "description": "return admin upi id  for payment ",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "$ref": "#/responses/GetAdminAccountDetailsResponse"
+                    }
+                }
+            }
+        },
+        "/forms/create/": {
+            "post": {
+                "operationId": "create_form",
+                "summary": "Create Form",
+                "description": "return form details after creation of form_id",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [{
+                    "$ref": "#/parameters/CreateFormParameters"
+                }],
+                "responses": {
+                    "201": {
+                        "$ref": "#/responses/CreateFormResponse"
+                    }
+                }
+            }
+        },
+        "/forms/sections/create/": {
+            "post": {
+                "operationId": "create_sections",
+                "summary": "Create Sections",
+                "description": "creates section details",
+                "security": [{
+                    "oauth": ["read", "write"]
+                }],
+                "parameters": [{
+                    "$ref": "#/parameters/CreateSectionsParameters"
+                }],
+                "responses": {
+                    "201": {
+                        "$ref": "#/responses/CreateSectionResponse"
+                    }
+                }
+            }
+        }
+    }
+
+
+}
