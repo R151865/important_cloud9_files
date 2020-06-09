@@ -127,13 +127,8 @@ class GetFormsInteractor:
                                                   brand_dicts=brand_dicts)
 
         pending_items_count = self._get_pending_items(orders)
-
-        is_live_form = form.status == FormStatusEnum.LIVE.value
-        if is_live_form:
-            incurred_cost = 0
-        else:
-            incurred_cost = self._get_incurred_cost(orders=orders,
-                                                    brand_dicts=brand_dicts)
+        incurred_cost = self._get_incurred_cost(orders=orders,
+                                                brand_dicts=brand_dicts)
 
         form_status = \
             self.is_form_is_closed_with_no_pending_item_update_form_status(
@@ -183,6 +178,7 @@ class GetFormsInteractor:
 
     def _get_incurred_cost(self, orders, brand_dicts):
         cost = 0
+
         for order in orders:
             price_per_item = brand_dicts[order.brand_id].price_per_item
 

@@ -130,7 +130,7 @@ transaction_list = [
     {
         "transaction_id": 1,
         "user_id": 1,
-        "amount": 2500,
+        "amount": 1000,
         "status": "APPROVED",
         "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
@@ -139,7 +139,7 @@ transaction_list = [
     {
         "transaction_id": 2,
         "user_id": 1,
-        "amount": 1000,
+        "amount": 300,
         "status": "APPROVED",
         "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
@@ -203,7 +203,7 @@ transaction_list = [
     {
         "transaction_id": 9,
         "user_id": 2,
-        "amount": 2000,
+        "amount": 900,
         "status": "APPROVED",
         "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
@@ -212,7 +212,7 @@ transaction_list = [
     {
         "transaction_id": 10,
         "user_id": 2,
-        "amount": 1000,
+        "amount": 600,
         "status": "APPROVED",
         "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
@@ -230,7 +230,7 @@ transaction_list = [
     {
         "transaction_id": 12,
         "user_id": 2,
-        "amount": -500,
+        "amount": -300,
         "status": "APPROVED",
         "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
@@ -277,7 +277,7 @@ transaction_list = [
     {
         "transaction_id": 17,
         "user_id": 3,
-        "amount": 2000,
+        "amount": 1100,
         "status": "APPROVED",
         "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
@@ -286,7 +286,7 @@ transaction_list = [
     {
         "transaction_id": 18,
         "user_id": 3,
-        "amount": 1000,
+        "amount": 200,
         "status": "APPROVED",
         "payment_type": "GOOGLE_PAY",
         "screen_shot": "screen_shot/payment.png",
@@ -295,7 +295,7 @@ transaction_list = [
     {
         "transaction_id": 19,
         "user_id": 3,
-        "amount": -500,
+        "amount": -300,
         "status": "APPROVED",
         "payment_type": "PHONE_PAY",
         "screen_shot": "",
@@ -304,7 +304,7 @@ transaction_list = [
     {
         "transaction_id": 20,
         "user_id": 3,
-        "amount": -500,
+        "amount": -400,
         "status": "APPROVED",
         "payment_type": "PHONE_PAY",
         "screen_shot": "screen_shot/payment.png",
@@ -369,43 +369,43 @@ def create_transactions():
 
 new_forms_list = [
     {
-        "name": "form1",
-        "description": "form1 description",
-        "close_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "name": "Snack form 1",
+        "description": "Snack form 1  description",
+        "close_date": datetime.datetime(2020, 6, 1, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 6, 10, 0, 0, 0),
         "status": "LIVE",
         "sections": [
             {
-                "name": "section1", "description": "section1 description",
+                "name": "Chocolates", "description": "Chocolates description",
                 "items": [
                     {
-                        "name": "item1", "description": "item1 description",
+                        "name": "Cadbury", "description": "description",
                         "brands": [
                             {
                                 "name": "brand1", "min_quantity": 0, 
-                                "max_quantity": 10, "price_per_item": 100
+                                "max_quantity": 10, "price_per_item": 50
                             },
                             {
                                 "name": "brand2", "min_quantity": 0,
-                                "max_quantity": 8, "price_per_item": 200
+                                "max_quantity": 8, "price_per_item": 60
                             },
                             {
                                 "name": "brand3", "min_quantity": 0,
-                                "max_quantity": 9, "price_per_item": 50
+                                "max_quantity": 9, "price_per_item": 70
                             }
                             
                             ]
                     },
                     {
-                        "name": "item2", "description": "item2 description",
+                        "name": "Diary milk silk", "description": "description",
                         "brands": [
                             {
                                 "name": "brand4", "min_quantity": 0, 
-                                "max_quantity": 10, "price_per_item": 100
+                                "max_quantity": 10, "price_per_item": 40
                             },
                             {
                                 "name": "brand5", "min_quantity": 0,
-                                "max_quantity": 5, "price_per_item": 200
+                                "max_quantity": 5, "price_per_item": 80
                             },
                             {
                                 "name": "brand6", "min_quantity": 0,
@@ -417,20 +417,20 @@ new_forms_list = [
                         ]
             },
             {
-                "name": "section2",
-                "description": "section2 description",
+                "name": "Chips",
+                "description": "Chips description",
                 "items": [
                     {
-                        "name": "item3",
-                        "description": "item3 description",
+                        "name": "Lays",
+                        "description": "description",
                         "brands": [
                             {
                                 "name": "brand7", "min_quantity": 0, 
-                                "max_quantity": 20, "price_per_item": 100
+                                "max_quantity": 20, "price_per_item": 80
                             },
                             {
                                 "name": "brand8", "min_quantity": 0,
-                                "max_quantity": 8, "price_per_item": 200
+                                "max_quantity": 8, "price_per_item": 90
                             },
                             {
                                 "name": "brand9", "min_quantity": 0,
@@ -440,8 +440,8 @@ new_forms_list = [
                             ]
                     },
                     {
-                        "name": "item4",
-                        "description": "item4 description",
+                        "name": "Bingo",
+                        "description": " description",
                         "brands": [
                             {
                                 "name": "brand10", "min_quantity": 0, 
@@ -464,17 +464,17 @@ new_forms_list = [
             ]
     },
     {
-        "name": "form2",
-        "description": "form2 description",
-        "close_date": datetime.datetime(2020, 10, 9, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "name": "Accommodation",
+        "description": "description",
+        "close_date": datetime.datetime(2020, 6, 1, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 6, 6, 0, 0, 0),
         "status": "CLOSED",
         "sections": [
             {
-                "name": "section3", "description": "section3 description",
+                "name": "Shampoos", "description": "Shampoos description",
                 "items": [
                     {
-                        "name": "item5", "description": "item5 description",
+                        "name": "Tresemme", "description": "Tresemme description",
                         "brands": [
                             {
                                 "name": "brand13", "min_quantity": 0, 
@@ -482,7 +482,7 @@ new_forms_list = [
                             },
                             {
                                 "name": "brand14", "min_quantity": 0,
-                                "max_quantity": 8, "price_per_item": 200
+                                "max_quantity": 8, "price_per_item": 150
                             },
                             {
                                 "name": "brand15", "min_quantity": 0,
@@ -492,7 +492,7 @@ new_forms_list = [
                             ]
                     },
                     {
-                        "name": "item6", "description": "item6 description",
+                        "name": "Dove", "description": "Dove description",
                         "brands": [
                             {
                                 "name": "brand16", "min_quantity": 0, 
@@ -500,7 +500,7 @@ new_forms_list = [
                             },
                             {
                                 "name": "brand17", "min_quantity": 0,
-                                "max_quantity": 8, "price_per_item": 200
+                                "max_quantity": 8, "price_per_item": 150
                             },
                             {
                                 "name": "brand18", "min_quantity": 0,
@@ -512,12 +512,12 @@ new_forms_list = [
                         ]
             }, 
             {
-                "name": "section4",
-                "description": "section4 description",
+                "name": "Hair oil",
+                "description": "Hair oil description",
                 "items": [
                     {
-                        "name": "item7",
-                        "description": "item7 description",
+                        "name": "Coconut oil",
+                        "description": "Coconut oil description",
                         "brands": [
                             {
                                 "name": "brand19", "min_quantity": 0, 
@@ -525,7 +525,7 @@ new_forms_list = [
                             },
                             {
                                 "name": "brand20", "min_quantity": 0,
-                                "max_quantity": 8, "price_per_item": 200
+                                "max_quantity": 8, "price_per_item": 150
                             },
                             {
                                 "name": "brand21", "min_quantity": 0,
@@ -535,8 +535,8 @@ new_forms_list = [
                             ]
                     },
                     {
-                        "name": "item8",
-                        "description": "item8 description",
+                        "name": "indulekha",
+                        "description": "indulekha description",
                         "brands": [
                             {
                                 "name": "brand22", "min_quantity": 0, 
@@ -544,7 +544,7 @@ new_forms_list = [
                             },
                             {
                                 "name": "brand23", "min_quantity": 0,
-                                "max_quantity": 5, "price_per_item": 200
+                                "max_quantity": 5, "price_per_item": 150
                             },
                             {
                                 "name": "brand24", "min_quantity": 0,
@@ -560,17 +560,17 @@ new_forms_list = [
     },
     # form3
     {
-        "name": "form3",
-        "description": "form3 description",
-        "close_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "name": "Fruits form",
+        "description": "Fruits form description",
+        "close_date": datetime.datetime(2020, 5, 10, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 5, 20, 0, 0, 0),
         "status": "DONE",
         "sections": [
             {
                 "name": "section5", "description": "section5 description",
                 "items": [
                     {
-                        "name": "item9", "description": "item9 description",
+                        "name": "Apples", "description": "Apples description",
                         "brands": [
                             {
                                 "name": "brand25", "min_quantity": 0, 
@@ -588,7 +588,7 @@ new_forms_list = [
                             ]
                     },
                     {
-                        "name": "item10", "description": "item10 description",
+                        "name": "Mango", "description": "Mango description",
                         "brands": [
                             {
                                 "name": "brand28", "min_quantity": 0, 
@@ -612,8 +612,8 @@ new_forms_list = [
                 "description": "section6 description",
                 "items": [
                     {
-                        "name": "item11",
-                        "description": "item11 description",
+                        "name": "Oranges",
+                        "description": "Oranges description",
                         "brands": [
                             {
                                 "name": "brand31", "min_quantity": 0, 
@@ -631,8 +631,8 @@ new_forms_list = [
                             ]
                     },
                     {
-                        "name": "item12",
-                        "description": "item12 description",
+                        "name": "grapes",
+                        "description": "grapes description",
                         "brands": [
                             {
                                 "name": "brand34", "min_quantity": 0, 
@@ -657,8 +657,8 @@ new_forms_list = [
     {
         "name": "form4",
         "description": "form4 description",
-        "close_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2020, 5, 25, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 6, 1, 0, 0, 0),
         "status": "LIVE",
         "sections": [
             {
@@ -753,8 +753,8 @@ new_forms_list = [
     {
         "name": "form5",
         "description": "form5 description",
-        "close_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2020, 6, 3, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 6, 6, 0, 0, 0),
         "status": "LIVE",
         "sections": [
             {
@@ -848,8 +848,8 @@ new_forms_list = [
     {
         "name": "form6",
         "description": "form6 description",
-        "close_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2020, 5, 10, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 5, 11, 0, 0, 0),
         "status": "CLOSED",
         "sections": [
             {
@@ -943,8 +943,8 @@ new_forms_list = [
     {
         "name": "form7",
         "description": "form7 description",
-        "close_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2020, 6, 6, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 6, 10, 0, 0, 0),
         "status": "LIVE",
         "sections": [
             {
@@ -1035,41 +1035,231 @@ new_forms_list = [
             }
             ]
     },
-
+    {
+        "name": "form8",
+        "description": "form8 description",
+        "close_date": datetime.datetime(2020, 4, 4, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 4, 4, 0, 0, 0),
+        "status": "CLOSED",
+        "sections": [
+            {
+                "name": "section15", "description": "section15 description",
+                "items": [
+                    {
+                        "name": "item28", "description": "item28 description",
+                        "brands": [
+                            {
+                                "name": "brand86", "min_quantity": 0, 
+                                "max_quantity": 5, "price_per_item": 100
+                            },
+                            {
+                                "name": "brand87", "min_quantity": 0,
+                                "max_quantity": 8, "price_per_item": 200
+                            },
+                            {
+                                "name": "brand88", "min_quantity": 0,
+                                "max_quantity": 7, "price_per_item": 50
+                            }
+                            
+                            ]
+                    },
+                    {
+                        "name": "item29", "description": "item29 description",
+                        "brands": [
+                            {
+                                "name": "brand89", "min_quantity": 0, 
+                                "max_quantity": 5, "price_per_item": 100
+                            },
+                            {
+                                "name": "brand90", "min_quantity": 0,
+                                "max_quantity": 5, "price_per_item": 200
+                            },
+                            {
+                                "name": "brand91", "min_quantity": 0,
+                                "max_quantity": 6, "price_per_item": 50
+                            }
+                            
+                            ]
+                    }
+                        ]
+            },
+            {
+                "name": "section16",
+                "description": "section16 description",
+                "items": [
+                    {
+                        "name": "item30",
+                        "description": "item30 description",
+                        "brands": [
+                            {
+                                "name": "brand92", "min_quantity": 1, 
+                                "max_quantity": 5, "price_per_item": 100
+                            },
+                            {
+                                "name": "brand93", "min_quantity": 2,
+                                "max_quantity": 8, "price_per_item": 200
+                            },
+                            {
+                                "name": "brand94", "min_quantity": 5,
+                                "max_quantity": 7, "price_per_item": 50
+                            }
+                            
+                            ]
+                    },
+                    {
+                        "name": "item31",
+                        "description": "item31 description",
+                        "brands": [
+                            {
+                                "name": "brand95", "min_quantity": 1, 
+                                "max_quantity": 5, "price_per_item": 100
+                            },
+                            {
+                                "name": "brand96", "min_quantity": 2,
+                                "max_quantity": 5, "price_per_item": 200
+                            },
+                            {
+                                "name": "brand97", "min_quantity": 2,
+                                "max_quantity": 6, "price_per_item": 50
+                            }
+                            
+                            ]
+                    }
+                    
+                    ]
+            }
+            ]
+    },
+    {
+        "name": "form9",
+        "description": "form9 description",
+        "close_date": datetime.datetime(2020, 3, 10, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "status": "LIVE",
+        "sections": [
+            {
+                "name": "section17", "description": "section17 description",
+                "items": [
+                    {
+                        "name": "item32", "description": "item32 description",
+                        "brands": [
+                            {
+                                "name": "brand98", "min_quantity": 0, 
+                                "max_quantity": 5, "price_per_item": 100
+                            },
+                            {
+                                "name": "brand99", "min_quantity": 0,
+                                "max_quantity": 8, "price_per_item": 50
+                            },
+                            {
+                                "name": "brand100", "min_quantity": 0,
+                                "max_quantity": 7, "price_per_item": 50
+                            }
+                            
+                            ]
+                    },
+                    {
+                        "name": "item33", "description": "item33 description",
+                        "brands": [
+                            {
+                                "name": "brand101", "min_quantity": 0, 
+                                "max_quantity": 5, "price_per_item": 100
+                            },
+                            {
+                                "name": "brand102", "min_quantity": 0,
+                                "max_quantity": 5, "price_per_item": 90
+                            },
+                            {
+                                "name": "brand103", "min_quantity": 0,
+                                "max_quantity": 6, "price_per_item": 50
+                            }
+                            
+                            ]
+                    }
+                        ]
+            },
+            {
+                "name": "section18",
+                "description": "section18 description",
+                "items": [
+                    {
+                        "name": "item34",
+                        "description": "item34 description",
+                        "brands": [
+                            {
+                                "name": "brand105", "min_quantity": 1, 
+                                "max_quantity": 5, "price_per_item": 100
+                            },
+                            {
+                                "name": "brand106", "min_quantity": 2,
+                                "max_quantity": 8, "price_per_item": 80
+                            },
+                            {
+                                "name": "brand107", "min_quantity": 5,
+                                "max_quantity": 7, "price_per_item": 50
+                            }
+                            
+                            ]
+                    },
+                    {
+                        "name": "item35",
+                        "description": "item35 description",
+                        "brands": [
+                            {
+                                "name": "brand108", "min_quantity": 1, 
+                                "max_quantity": 5, "price_per_item": 100
+                            },
+                            {
+                                "name": "brand109", "min_quantity": 2,
+                                "max_quantity": 5, "price_per_item": 70
+                            },
+                            {
+                                "name": "brand110", "min_quantity": 2,
+                                "max_quantity": 6, "price_per_item": 50
+                            }
+                            
+                            ]
+                    }
+                    
+                    ]
+            }
+            ]
+    },
 
     {
         "name": "form20",
         "description": "form20 description",
-        "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2020, 11, 8, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 1, 10, 0, 0, 0),
         "status": "CLOSED",
-        "sections": []
-    },{
+        "sections": []},
+    {
         "name": "form22",
         "description": "form22 description",
         "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 2, 10, 0, 0, 0),
         "status": "CLOSED",
-        "sections": []
-    },{
+        "sections": []},
+    {
         "name": "form23",
         "description": "form23 description",
         "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 3, 10, 0, 0, 0),
         "status": "CLOSED",
-        "sections": []
-    },{
+        "sections": []},
+    {
         "name": "form24",
         "description": "form24 description",
         "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 5, 3, 0, 0, 0),
         "status": "CLOSED",
         "sections": []
-    },{
+    },
+    {
         "name": "form25",
         "description": "form25 description",
-        "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2020, 1, 8, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2020, 1, 9, 0, 0, 0),
         "status": "CLOSED",
         "sections": []
     },
@@ -1079,33 +1269,35 @@ new_forms_list = [
         "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
         "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
         "status": "CLOSED",
-        "sections": []
-    },{
+        "sections": []},
+    {
         "name": "form27",
         "description": "form27 description",
-        "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2019, 10, 8, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2019, 10, 10, 0, 0, 0),
         "status": "CLOSED",
         "sections": []
-    },{
+    },
+    {
         "name": "form28",
         "description": "form28 description",
-        "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2019, 10, 8, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2019, 10, 10, 0, 0, 0),
         "status": "CLOSED",
         "sections": []
-    },{
+    },
+    {
         "name": "form29",
         "description": "form29 description",
-        "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2019, 10, 8, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2019, 10, 10, 0, 0, 0),
         "status": "CLOSED",
-        "sections": []
-    },{
+        "sections": []},
+    {
         "name": "form30",
         "description": "form30 description",
-        "close_date": datetime.datetime(2020, 10, 8, 0, 0, 0),
-        "expected_delivery_date": datetime.datetime(2020, 10, 10, 0, 0, 0),
+        "close_date": datetime.datetime(2019, 10, 8, 0, 0, 0),
+        "expected_delivery_date": datetime.datetime(2019, 10, 10, 0, 0, 0),
         "status": "CLOSED",
         "sections": []
     },

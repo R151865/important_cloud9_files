@@ -4,31 +4,30 @@ from unittest.mock import create_autospec
 
 from essentials_kit_management.interactors.storages.form_storage_interface \
      import FormStorageInterface
-from essentials_kit_management.interactors.presenters.form_presenter_interface \
-     import FormPresenterInterface
-from essentials_kit_management.interactors.storages.section_storage_interface \
-     import SectionStorageInterface
-from essentials_kit_management.interactors.presenters.section_presenter_interface \
-     import SectionPresenterInterface
+from essentials_kit_management.interactors.presenters. \
+    form_presenter_interface import FormPresenterInterface
+from essentials_kit_management.interactors.storages. \
+    section_storage_interface import SectionStorageInterface
+from essentials_kit_management.interactors.presenters. \
+    section_presenter_interface import SectionPresenterInterface
 
 from essentials_kit_management.interactors.storages.item_storage_interface \
      import ItemStorageInterface
-from essentials_kit_management.interactors.presenters.item_presenter_interface \
-     import ItemPresenterInterface
+from essentials_kit_management.interactors.presenters. \
+    item_presenter_interface import ItemPresenterInterface
 from essentials_kit_management.interactors.storages.brand_storage_interface \
      import BrandStorageInterface
-from essentials_kit_management.interactors.presenters.brand_presenter_interface \
-     import BrandPresenterInterface
+from essentials_kit_management.interactors.presenters. \
+    brand_presenter_interface import BrandPresenterInterface
 
 
 from essentials_kit_management.interactors.storages.order_storage_interface \
      import OrderStorageInterface
-from essentials_kit_management.interactors.presenters.order_presenter_interface \
-     import OrderPresenterInterface
+from essentials_kit_management.interactors.presenters. \
+    order_presenter_interface import OrderPresenterInterface
 
 from essentials_kit_management.interactors.update_form_interactor import \
     UpdateFormInteractor
-
 
 
 def test_update_form_interactor_with_valid_details_update_orders(
@@ -64,7 +63,6 @@ def test_update_form_interactor_with_valid_details_update_orders(
         item_presenter=item_presenter,
         brand_storage=brand_storage,
         brand_presenter=brand_presenter)
-
 
     # Act
     interactor.update_form(user_id=user_id,

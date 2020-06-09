@@ -4,13 +4,10 @@ from unittest.mock import create_autospec
 
 from essentials_kit_management.interactors.storages.user_storage_interface \
     import UserStorageInterface
-from essentials_kit_management.interactors.presenters.user_presenter_interface \
-    import UserPresenterInterface
+from essentials_kit_management.interactors.presenters. \
+    user_presenter_interface import UserPresenterInterface
 from essentials_kit_management.interactors.get_user_transactions_interactor \
     import GetUserTransactionsInteractor
-
-
-
 
 
 def test_get_user_transactions_interactor(
@@ -37,5 +34,4 @@ def test_get_user_transactions_interactor(
     user_storage.get_transaction_dtos.assert_called_once_with(user_id=user_id)
     user_presenter.get_user_transactions_response.assert_called_once_with(
         my_wallet_dto=my_wallet_dto)
-
     assert actual_dict == expected_dict

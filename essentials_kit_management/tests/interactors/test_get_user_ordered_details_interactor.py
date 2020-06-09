@@ -9,13 +9,12 @@ from essentials_kit_management.interactors.presenters import \
 from essentials_kit_management.interactors.storages import \
     FormStorageInterface
 
-from essentials_kit_management.interactors.get_user_ordered_details_interactor \
-    import GetUserOrderedDetailsInteractor
+from essentials_kit_management.interactors. \
+    get_user_ordered_details_interactor import GetUserOrderedDetailsInteractor
 
 from essentials_kit_management.interactors.storages.dtos import (
     GetUserOrderDto
 )
-
 
 
 def test_get_user_ordered_details_interactor_with_valid_details(
@@ -23,7 +22,7 @@ def test_get_user_ordered_details_interactor_with_valid_details(
         get_user_items_dtos,
         get_user_order_dtos,
         get_expected_get_user_order_dtos
-    ):
+):
 
     # Arrange
     user_id = 1

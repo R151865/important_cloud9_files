@@ -2,15 +2,15 @@ from unittest.mock import create_autospec
 
 from essentials_kit_management.interactors.storages.user_storage_interface \
     import UserStorageInterface
-from essentials_kit_management.interactors.presenters.user_presenter_interface \
-    import UserPresenterInterface
+from essentials_kit_management.interactors.presenters. \
+    user_presenter_interface import UserPresenterInterface
 
 from essentials_kit_management.interactors.storages.dtos import \
     AccountDetailsDto
 
 from essentials_kit_management.interactors. \
     get_admin_account_details_interactor import \
-        GetAdminAccountDetailsInteractor
+    GetAdminAccountDetailsInteractor
 
 
 def test_get_admin_account_details_interactor():

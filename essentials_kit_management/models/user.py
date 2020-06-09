@@ -45,27 +45,28 @@ class Form(models.Model):
 
 
 class Order(models.Model):
-   user = models.ForeignKey(User, on_delete=models.CASCADE)
-   item = models.ForeignKey(Item, on_delete=models.CASCADE)
-   brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-   form = models.ForeignKey(Form, on_delete=models.CASCADE)
-   section = models.ForeignKey(Section, on_delete=models.CASCADE)
-   count = models.IntegerField(default=0)
-   pending_count = models.IntegerField()
-   out_of_stock = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    form = models.ForeignKey(Form, on_delete=models.CASCADE)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+    count = models.IntegerField(default=0)
+    pending_count = models.IntegerField()
+    out_of_stock = models.IntegerField()
 
 
 class Transaction(models.Model):
     transaction_id = models.IntegerField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now=True)
-    amount =  models.IntegerField(default=0)
+    amount = models.IntegerField(default=0)
     status = models.CharField(
         choices = [
-            (status.name, status.value) for status in TransactionStatusEnum
-            ],
-            max_length=50,
-            default=TransactionStatusEnum.PENDING.value
+                   (status.name, status.value)
+                   for status in TransactionStatusEnum
+                   ],
+        max_length=50,
+        default=TransactionStatusEnum.PENDING.value
         )
     transaction_type = models.CharField(
         choices = [

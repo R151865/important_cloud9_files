@@ -135,7 +135,7 @@ def get_expected_form_dtos():
                         items_count=20,
                         estimated_cost=3000,
                         items_pending_count=5,
-                        cost_incurred_for_delivery=2000),
+                        cost_incurred_for_delivery=0),
         HomePageFormDto(form_id=2,
                         name="FORM2",
                         status="CLOSED",

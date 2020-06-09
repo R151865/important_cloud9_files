@@ -47,8 +47,8 @@ def get_forms_expected_dict():
                         "form_id": 1,
                         "form_name": "FORM1",
                         "form_status": "LIVE",
-                        "close_date": "10th October 12AM",
-                        "expected_delivery_date": "10th October 12AM",
+                        "close_date": "10 October 12:00AM",
+                        "expected_delivery_date": "10 October 12:00AM",
                         "items_count": 20,
                         "estimated_cost": 3000,
                         "items_pending_count": 5,
@@ -58,8 +58,8 @@ def get_forms_expected_dict():
                         "form_id": 2,
                         "form_name": "FORM2",
                         "form_status": "CLOSED",
-                        "close_date": "10th October 12AM",
-                        "expected_delivery_date": "10th October 12AM",
+                        "close_date": "10 October 12:00AM",
+                        "expected_delivery_date": "10 October 12:00AM",
                         "items_count": 5,
                         "estimated_cost": 1000,
                         "items_pending_count": 5,
@@ -128,7 +128,7 @@ def get_form_expected_dict():
     form_dict = {
             "form_id": 1,
             "form_name": "FORM1",
-            "close_date": "10th October 12AM",
+            "close_date": "10 October 12:00AM",
             "sections": [
                 {
                     "section_id": 1,

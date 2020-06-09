@@ -13,6 +13,8 @@ from essentials_kit_management.constants.exception_messages import (
     )
 
 
+from essentials_kit_management.constants.constants import DATE_TIME_FORMAT
+
 class FormPresenterImplementation(FormPresenterInterface):
 
     def get_forms_response(self, form_dtos, total_forms_count: int):
@@ -44,7 +46,7 @@ class FormPresenterImplementation(FormPresenterInterface):
 
     @staticmethod
     def convert_time_stamp(datetime):
-        return datetime.strftime("%-dth %B %-I%p")
+        return datetime.strftime(DATE_TIME_FORMAT)
 
     def raise_invalid_form_id_exception(self):
         raise NotFound(*INVALID_FORM_ID)
@@ -53,7 +55,6 @@ class FormPresenterImplementation(FormPresenterInterface):
         pass
 
     def get_form_response(self, get_form_details_dto):
-
         form = get_form_details_dto
         sections = form.sections
 
@@ -109,7 +110,6 @@ class FormPresenterImplementation(FormPresenterInterface):
         }
 
     def _get_brand_dict_list(self, brands):
-
         brand_dict_list = [
             self._convert_brand_dto_to_dict(brand)
             for brand in brands
@@ -125,14 +125,12 @@ class FormPresenterImplementation(FormPresenterInterface):
             "price_per_item": brand.price_per_item
         }
 
-
     def get_user_ordered_details_response(self, order_detail_dtos):
         order_details_list = [
             self._convert_to_get_user_order_dto_to_dict(user_order_dto)
             for user_order_dto in order_detail_dtos
             ]
         return order_details_list
-
 
     def _convert_to_get_user_order_dto_to_dict(self, user_order_dtos):
         return {

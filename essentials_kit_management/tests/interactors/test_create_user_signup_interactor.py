@@ -5,8 +5,8 @@ from django_swagger_utils.drf_server.exceptions import NotFound
 
 from essentials_kit_management.interactors.storages.user_storage_interface \
     import UserStorageInterface
-from essentials_kit_management.interactors.presenters.user_presenter_interface \
-    import UserPresenterInterface
+from essentials_kit_management.interactors.presenters. \
+    user_presenter_interface import UserPresenterInterface
 
 from common.oauth2_storage import OAuth2SQLStorage
 from common.oauth_user_auth_tokens_service import OAuthUserAuthTokensService
@@ -61,8 +61,6 @@ class TestCreateUserSignUpInteractor:
                                                          password=password)
         create_user_auth_tokens.assert_called_once_with(user_id=user_id)
         assert actual_access_token_dict == expected_access_token_dict
-
-
 
     def test_create_user_singup_interactor_with_exists_username_raise_exception(
             self):

@@ -9,7 +9,7 @@ def test_get_form_response_with_valid_details_return_dict(
         get_form_expected_dict):
 
     # Arrange
-    expected_dict =  get_form_expected_dict
+    expected_dict = get_form_expected_dict
     form_presenter = FormPresenterImplementation()
 
     # Act

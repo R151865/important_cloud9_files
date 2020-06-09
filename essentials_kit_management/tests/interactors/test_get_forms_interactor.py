@@ -16,7 +16,6 @@ from essentials_kit_management.interactors.storages.dtos import (
 )
 
 
-
 def test_get_forms_interactors_with_valid_details(brand_dtos,
                                                   items_dtos,
                                                   order_dtos,
@@ -34,13 +33,13 @@ def test_get_forms_interactors_with_valid_details(brand_dtos,
         order_dtos=order_dtos,
         form_dto=form_dtos[0],
         brand_dtos=brand_dtos)
-    
-    form_complete_details_dtos = [form_with_details_dto1, form_with_details_dto1]
+
+    form_complete_details_dtos = \
+        [form_with_details_dto1, form_with_details_dto1]
     form_storage = create_autospec(FormStorageInterface)
     form_presenter = create_autospec(FormPresenterInterface)
     interactor = GetFormsInteractor(form_storage=form_storage,
-                                     form_presenter=form_presenter)
-
+                                    form_presenter=form_presenter)
 
     form_storage.get_forms_dtos.return_value = form_dtos, total_forms_count
     form_storage.get_user_order_dtos.return_value = order_dtos
@@ -73,7 +72,7 @@ def test_get_forms_interactors_with_valid_details_with_invalid_offset_and_limit(
     form_storage = create_autospec(FormStorageInterface)
     form_presenter = create_autospec(FormPresenterInterface)
     interactor = GetFormsInteractor(form_storage=form_storage,
-                                     form_presenter=form_presenter)
+                                    form_presenter=form_presenter)
 
     form_storage.are_they_valid_offset_and_limit.return_value = False
     form_presenter.raise_invalid_offset_and_limit_exception.side_effect = \

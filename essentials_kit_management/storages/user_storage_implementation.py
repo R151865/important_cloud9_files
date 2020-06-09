@@ -30,7 +30,7 @@ class UserStorageImplementation(UserStorageInterface):
 
         is_valid_password = User.objects.filter(password=password).exists()
         in_valid_password_given = not is_valid_password
-
+        
         if in_valid_password_given:
             raise InvalidPassword
 
